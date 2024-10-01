@@ -6,16 +6,16 @@ import subprocess
 def runcmd(cmd):
     ret = subprocess.run(cmd, shell=True, capture_output=True)
     result = ret.stdout.decode()
-    return result
+    return (result, ret.returncode)
 
 def main():
     cmd = "ls -la"
-    result = runcmd(cmd)
-    if result == "":
+    result, ret = runcmd(cmd)
+    if ret != 0:
         print("an error occured...")
-        return 1
+        return ret
     print(result)
-    return 0
+    return ret
 
 if __name__ == "__main__":
     main()
