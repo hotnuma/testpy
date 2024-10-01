@@ -1,26 +1,20 @@
 #!/usr/bin/env python3
 
-import sys
-import os
+import os, sys
 import subprocess
 
 def runcmd(cmd):
     ret = subprocess.run(cmd, shell=True, capture_output=True)
     result = ret.stdout.decode()
-
-    if result == "":
-        print("error")
-        return 1
-    
-    print(result)
-    
-    return 0
+    return result
 
 def main():
     cmd = "ls -la"
-    
-    runcmd(cmd)
-    
+    result = runcmd(cmd)
+    if result == "":
+        print("an error occured...")
+        return 1
+    print(result)
     return 0
 
 if __name__ == "__main__":
