@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-
 # ffprobe -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 file.mp3
-
 import sys
 import os
 import subprocess

@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # https://pynative.com/python-rename-file/
-
 import sys
 import os
 import re
